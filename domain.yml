@@ -1,0 +1,263 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- tell_name:
+    use_entities: true
+- play_video:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+- admission:
+    use_entities: true
+- chitchat:
+    use_entities: true
+- aboutcollege:
+    use_entities: true
+- courses:
+    use_entities: true
+- location:
+    use_entities: true
+- timings:
+    use_entities: true
+- awards:
+    use_entities: true
+- collegename:
+    use_entities: true
+- postgraduatecourses:
+    use_entities: true
+- undergraduatecourses:
+    use_entities: true
+- contactinfo:
+    use_entities: true
+- otherinfo:
+    use_entities: true
+- my_name:
+    use_entities: []
+- mobile_number:
+    use_entities: []
+- nlu_fallback:
+    use_entities: true
+entities:
+- name
+- number
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_contactdetails:
+  - text: You can reach out to the college helpline on +919731998888 | +919880801188 or mail us at admissions@cambridge.edu.in
+  utter_others:
+  - text: ' For other informations log on to https://www.cambridge.edu.in/'
+  utter_chitchat/ask_collegename:
+  - text: Cambridge Institute of Technology
+  utter_collegename:
+  - text: Cambridge Institute of Technology
+  utter_chitchat/ask_postgraduatecourses:
+  - text: |-
+      MBA - Master of Business Administration
+       MCA- Master of Computer Applications
+       M.Tech in Computer Science and Engineering
+  utter_chitchat/ask_undergraduatecourses:
+  - text: |
+      B.E. Computer Science and Engineering
+       B.E. Artificial Intelligence and Machine Learning
+       B.E. Information Science and Engineering
+       B.E. Electronics and Communication Engg.
+       B.E. Electrical and Electronics Engineering
+       B.E. Mechanical Engineering
+       B.E. Civil Engineering
+  utter_chitchat/ask_location:
+  - text: |-
+      The college is located at Jai Bhuvaneshwari Layout Rd, SR Layout, Chikkabasavanapura, Krishnarajapura, Bengaluru, Karnataka 560036.
+       follow the below Url for a map..
+      https://goo.gl/maps/zZ8brwn2KpUGP6vn8
+  utter_chitchat/ask_timings:
+  - text: |-
+      Sunday: Closed
+      Monday: 8:30am–4:30pm
+      Tuesday: 8:30am–4:30pm
+      Wednesday: 8:30am–4:30pm
+      Thursday: 8:30am–4:30pm
+      Friday: 8:30am–4:30pm
+      Saturday: 8:30am–1:30pm
+  utter__postgraduatecourses:
+  - text: |-
+      MBA - Master of Business Administration
+       MCA- Master of Computer Applications
+       M.Tech in Computer Science and Engineering
+  utter_undergraduatecourses:
+  - text: |
+      B.E. Computer Science and Engineering
+       B.E. Artificial Intelligence and Machine Learning
+       B.E. Information Science and Engineering
+       B.E. Electronics and Communication Engg.
+       B.E. Electrical and Electronics Engineering
+       B.E. Mechanical Engineering
+       B.E. Civil Engineering
+  utter_location:
+  - text: |-
+      The college is located at Jai Bhuvaneshwari Layout Rd, SR Layout, Chikkabasavanapura, Krishnarajapura, Bengaluru, Karnataka 560036.
+       follow the below Url for a map..
+      https://goo.gl/maps/zZ8brwn2KpUGP6vn8
+  utter_timings:
+  - text: |-
+      Sunday: Closed
+      Monday: 8:30am–4:30pm
+      Tuesday: 8:30am–4:30pm
+      Wednesday: 8:30am–4:30pm
+      Thursday: 8:30am–4:30pm
+      Friday: 8:30am–4:30pm
+      Saturday: 8:30am–1:30pm
+  utter_out_of_scope:
+  - text: Sorry could not get what you just said ..please rephrase what you said
+  utter_greet:
+  - text: Welcome to a quick Chitchat on CAMBRIDGE INSTITUTE OF TECHNOLOGY.
+  utter_intention:
+  - text: |-
+      please reply what sort of information you are seeking for:
+      1.Admission
+      2.About the college
+      3.contact details
+      4.others
+  utter_chitchat/ask_awards:
+  - text: |-
+      Most Promising Student Branch award by IEEE Bangalore Section in Annual General Body Meeting 2020
+       Best Emerging Engineering College in India – South 2018 – Awarded by ASSOCHAM
+       Placed 10th Rank in Top 20 Engineering Colleges in India – Awarded by Higher Education Review
+       27th Rank in TOP 100 Engineering Colleges in India
+       5th Rank in Bengaluru Among TOP Private T-Schools 2018 – Awarded by Data Quest-CMR Survey
+       7th Rank in TOP 10 Engineering Colleges in Bangalore – Awarded by Silicon India 
+       Best Placements & Career Building 2016, Honorary Award – Awarded by All India Technical & Management Council
+      Approved by the AICTE, New Delhi.  Permanently affiliated to VTU, Belagavi  NBA & NAAC accredited  An ISO 9001:2015 certified Institute Recognised by Govt. of Karnataka  UGC 2f Certified Institute 
+  utter_awards:
+  - text: |-
+      Most Promising Student Branch award by IEEE Bangalore Section in Annual General Body Meeting 2020
+       Best Emerging Engineering College in India – South 2018 – Awarded by ASSOCHAM
+       Placed 10th Rank in Top 20 Engineering Colleges in India – Awarded by Higher Education Review
+       27th Rank in TOP 100 Engineering Colleges in India
+       5th Rank in Bengaluru Among TOP Private T-Schools 2018 – Awarded by Data Quest-CMR Survey
+       7th Rank in TOP 10 Engineering Colleges in Bangalore – Awarded by Silicon India 
+       Best Placements & Career Building 2016, Honorary Award – Awarded by All India Technical & Management Council
+      Approved by the AICTE, New Delhi.  Permanently affiliated to VTU, Belagavi  NBA & NAAC accredited  An ISO 9001:2015 certified Institute Recognised by Govt. of Karnataka  UGC 2f Certified Institute 
+  utter_watchvideo:
+  - text: do you want to watch a introductary video about the college?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Okay Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_botname:
+  - text: My name is innovate yourself
+  utter_ask_name:
+  - text: what is your name
+  utter_ask_number:
+  - text: enter phone number
+  utter_details_thanks:
+  - text: |-
+      thankyou for entering your details
+       Name:{name}
+       Mobile_number:{number}
+  utter_noproblem:
+  - text: okay not an issue
+  utter_wanttofillform:
+  - text: do you want to fill the online admission form?
+  utter_admission_url:
+  - text: |-
+      Follow this url to fill out the admission form,
+      https://apply.cambridge.edu.in/?utm_source=organic&utm_medium=cit&utm_campaign=online
+  utter_whataboutcollege:
+  - text: |-
+      what would you want to know about college?
+      1.College Name?
+      2.college timings?
+      3.achivements and awards?
+      4.college location?
+      5.courses offered?
+  utter_whichcourse:
+  - text: Undergraduate or postgraduate courses?
+  utter_anythingelse:
+  - text: Any other information needed?
+actions:
+- utter_anythingelse
+- action_submit
+- action_video
+- utter_watchvideo
+- utter_chitchat/ask_collegename
+- utter_chitchat/ask_postgraduatecourses
+- utter_chitchat/ask_undergraduatecourses
+- utter_chitchat/ask_location
+- utter_chitchat/ask_timings
+- utter_chitchat/ask_awards
+- utter_collegename
+- utter_postgraduatecourses
+- utter_undergraduatecourses
+- utter_location
+- utter_timings
+- utter_awards
+- utter_ask_awards
+- utter_intention
+- utter_out_of_scope
+- utter_details_thanks
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_botname
+- utter_ask_name
+- utter_ask_number
+- utter_noproblem
+- utter_admission_url
+- utter_wanttofillform
+- utter_whataboutcollege
+- utter_whichcourse
+- utter_contactdetails
+- utter_others
+forms:
+  user_details_form:
+    required_slots:
+      name:
+      - entity: name
+        type: from_entity
+      number:
+      - entity: number
+        type: from_entity
+e2e_actions: []
